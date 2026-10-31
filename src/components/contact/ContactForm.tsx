@@ -1,5 +1,5 @@
 import { useRef, useState, type FormEvent, type SyntheticEvent } from 'react'
-import Button from '../ui/Button'
+import WaxSeal from '../decor/WaxSeal'
 import { Input, TextArea } from '../ui/Input'
 import { socials } from '../../content/socials'
 import { useT } from '../../i18n/LanguageContext'
@@ -71,10 +71,15 @@ export default function ContactForm() {
       <Input id="cf-subject" name="subject" label={f.subject} error={errors.subject} {...common} />
       <TextArea id="cf-message" name="message" rows={6} label={f.message} error={errors.message} {...common} />
       <div className="flex flex-wrap items-center gap-4">
-        <Button type="submit" disabled={status === 'sending'} className="disabled:cursor-not-allowed disabled:opacity-60">
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="inline-flex min-h-11 items-center gap-3 border border-crimson px-4 py-2 text-fg transition-colors hover:bg-crimson/20 disabled:cursor-not-allowed disabled:opacity-60 md:min-h-0"
+        >
+          <WaxSeal size={24} />
           {status === 'sending' ? f.sending : f.send}
-        </Button>
-        <p id="form-status" role="status" className={status === 'success' ? 'text-accent' : ''}>
+        </button>
+        <p id="form-status" role="status" className={status === 'success' ? 'text-accent-2' : ''}>
           {status === 'success' && f.success}
           {status === 'mailto' && f.mailtoOpened}
           {status === 'error' && f.error}

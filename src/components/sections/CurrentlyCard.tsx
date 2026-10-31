@@ -1,13 +1,14 @@
 import { useT } from '../../i18n/LanguageContext'
 
+/** Victorian calling card with the current project. */
 export default function CurrentlyCard() {
   const t = useT()
   return (
-    <div className="relative mx-auto flex max-w-[380px] items-center gap-3 border border-line bg-bg p-3">
-      <span aria-hidden="true" className="h-4 w-4 shrink-0 bg-accent" />
-      <p>
-        {t.hero.currentlyLabel} <span className="text-fg">{t.hero.currentProject}</span>
-      </p>
+    <div className="relative mx-auto mt-6 max-w-[380px] border border-brass bg-surface p-1">
+      <div className="border border-brass/50 px-4 py-3 text-center">
+        <p className="text-xs uppercase tracking-widest text-muted">{t.hero.currentlyLabel}</p>
+        <p className="mt-1 font-display text-xl italic text-fg">{t.hero.currentProject}</p>
+      </div>
     </div>
   )
 }

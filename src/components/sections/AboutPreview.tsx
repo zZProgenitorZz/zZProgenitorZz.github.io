@@ -1,7 +1,8 @@
 import Section from '../ui/Section'
 import SectionHeading from '../ui/SectionHeading'
 import Button from '../ui/Button'
-import DotGrid from '../decor/DotGrid'
+import BrassFrame from '../decor/BrassFrame'
+import Sigil from '../decor/Sigil'
 import { useT } from '../../i18n/LanguageContext'
 
 export default function AboutPreview() {
@@ -19,9 +20,11 @@ export default function AboutPreview() {
             {a.cta}
           </Button>
         </div>
-        <div className="relative mx-auto w-full max-w-[320px]">
-          <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} loading="lazy" className="block h-auto w-full" />
-          <DotGrid rows={5} cols={5} className="-right-4 bottom-4 hidden md:block" />
+        <div className="relative mx-auto w-full max-w-[300px]">
+          <Sigil variant="a" size={90} className="-right-12 -top-8 hidden md:block" />
+          <BrassFrame>
+            <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} loading="lazy" className="block h-auto w-full" />
+          </BrassFrame>
         </div>
       </div>
     </Section>

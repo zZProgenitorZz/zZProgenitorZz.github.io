@@ -3,6 +3,7 @@ import SectionHeading from '../ui/SectionHeading'
 import ContactForm from '../contact/ContactForm'
 import ContactLinks from '../contact/ContactLinks'
 import { useT } from '../../i18n/LanguageContext'
+import { fill } from '../../lib/rich'
 
 export default function ContactSection() {
   const t = useT()
@@ -13,8 +14,13 @@ export default function ContactSection() {
         <p>{t.contact.intro}</p>
         <ContactLinks />
       </div>
-      <div className="mt-12">
-        <ContactForm />
+      {/* The form is written as a letter */}
+      <div className="relative mt-12 border border-brass/60 bg-surface p-4 md:p-8">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-1 border border-brass/30" />
+        <p className="relative mb-6 font-display text-2xl italic text-fg">{fill(t.contact.letterGreeting, { name: t.name })}</p>
+        <div className="relative">
+          <ContactForm />
+        </div>
       </div>
     </Section>
   )
