@@ -1,11 +1,10 @@
 import Hero from '../components/sections/Hero'
 import ProjectsPreview from '../components/sections/ProjectsPreview'
 import SkillsSection from '../components/sections/SkillsSection'
-import JourneyLog from '../components/sections/JourneyLog'
+import Journey from '../components/sections/Journey'
 import AboutPreview from '../components/sections/AboutPreview'
 import ContactSection from '../components/sections/ContactSection'
 import PageEdgeDecor from '../components/decor/PageEdgeDecor'
-import FogBand from '../components/decor/FogBand'
 
 export default function HomePage() {
   return (
@@ -18,13 +17,10 @@ export default function HomePage() {
         ]}
       />
       <Hero />
-      <FogBand />
       <ProjectsPreview />
       <SkillsSection />
-      <FogBand />
-      <JourneyLog />
+      <Journey num="03" decor="clock" />
       <AboutPreview />
-      <FogBand />
       <ContactSection />
     </div>
   )

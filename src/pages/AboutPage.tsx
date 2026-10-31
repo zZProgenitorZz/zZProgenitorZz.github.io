@@ -3,8 +3,7 @@ import Section from '../components/ui/Section'
 import SectionHeading from '../components/ui/SectionHeading'
 import Grimoire from '../components/about/Grimoire'
 import FunFacts from '../components/about/FunFacts'
-import SequenceLadder from '../components/sections/SequenceLadder'
-import FogBand from '../components/decor/FogBand'
+import Journey from '../components/sections/Journey'
 import CornerBrackets from '../components/decor/CornerBrackets'
 import PageEdgeDecor from '../components/decor/PageEdgeDecor'
 import { useT } from '../i18n/LanguageContext'
@@ -36,8 +35,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <SequenceLadder num="01" />
-      <FogBand />
+      <Journey num="01" decor="gear" />
 
       <Section labelledBy="about-skills-heading">
         <SectionHeading id="about-skills-heading" num="02" title={a.skillsHeading} />

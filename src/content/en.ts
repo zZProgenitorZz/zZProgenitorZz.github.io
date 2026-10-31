@@ -65,13 +65,7 @@ export const en = {
     label: 'Sequence',
     head: 'HEAD -> main',
     planned: 'planned',
-  },
-
-  sequence: {
-    heading: 'sequence · growth-path',
-    command: 'cat ~/.sequence',
-    label: 'Sequence',
-    current: '<- you are here',
+    current: 'you are here',
     locked: 'locked',
   },
 

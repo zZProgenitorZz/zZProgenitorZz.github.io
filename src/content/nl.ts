@@ -65,13 +65,7 @@ export const nl: Content = {
     label: 'Sequence',
     head: 'HEAD -> main',
     planned: 'planned',
-  },
-
-  sequence: {
-    heading: 'sequence · groeipad',
-    command: 'cat ~/.sequence',
-    label: 'Sequence',
-    current: '<- je bent hier',
+    current: 'je bent hier',
     locked: 'vergrendeld',
   },
 

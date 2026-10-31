@@ -33,10 +33,6 @@ export default {
       keyframes: {
         blink: { '0%, 49%': { opacity: '1' }, '50%, 100%': { opacity: '0' } },
         runeSpin: { to: { transform: 'rotate(360deg)' } },
-        fogDrift: {
-          '0%': { transform: 'translate3d(-5%, 0, 0)' },
-          '100%': { transform: 'translate3d(5%, 0, 0)' },
-        },
         gearTurn: { to: { transform: 'rotate(360deg)' } },
         stamp: {
           '0%': { transform: 'scale(1.4) rotate(-12deg)' },
@@ -46,7 +42,6 @@ export default {
       animation: {
         blink: 'blink 1.1s steps(1, end) infinite',
         'rune-spin': 'runeSpin 240s linear infinite',
-        'fog-drift': 'fogDrift 40s ease-in-out infinite alternate',
         'gear-turn': 'gearTurn 120s linear infinite',
         stamp: 'stamp 250ms ease-out 1',
       },
