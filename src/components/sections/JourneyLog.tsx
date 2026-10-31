@@ -1,5 +1,6 @@
 import Section from '../ui/Section'
 import SectionHeading from '../ui/SectionHeading'
+import ClockHands from '../decor/ClockHands'
 import { sequences } from '../../content/sequences'
 import { useLang, useT } from '../../i18n/LanguageContext'
 
@@ -47,6 +48,7 @@ export default function JourneyLog() {
           )
         })}
       </ol>
+      <ClockHands size={110} className="right-8 top-24 hidden lg:block" />
     </Section>
   )
 }

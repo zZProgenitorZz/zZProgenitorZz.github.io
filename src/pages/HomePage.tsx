@@ -5,6 +5,7 @@ import JourneyLog from '../components/sections/JourneyLog'
 import AboutPreview from '../components/sections/AboutPreview'
 import ContactSection from '../components/sections/ContactSection'
 import PageEdgeDecor from '../components/decor/PageEdgeDecor'
+import FogBand from '../components/decor/FogBand'
 
 export default function HomePage() {
   return (
@@ -17,10 +18,13 @@ export default function HomePage() {
         ]}
       />
       <Hero />
+      <FogBand />
       <ProjectsPreview />
       <SkillsSection />
+      <FogBand />
       <JourneyLog />
       <AboutPreview />
+      <FogBand />
       <ContactSection />
     </div>
   )

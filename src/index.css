@@ -44,3 +44,20 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Fogged (future) ladder steps. The fog is dropped for users who ask for less transparency or more contrast. */
+.fogged {
+  opacity: 0.6;
+  filter: blur(1.5px);
+  user-select: none;
+}
+.fogged-deep {
+  filter: blur(3px);
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .fogged,
+  .fogged-deep {
+    opacity: 1;
+    filter: none;
+  }
+}

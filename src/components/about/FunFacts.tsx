@@ -14,7 +14,7 @@ export default function FunFacts() {
   const { lang } = useLang()
   return (
     <Section labelledBy="facts-heading">
-      <SectionHeading id="facts-heading" num="02" title={t.about.factsHeading} />
+      <SectionHeading id="facts-heading" num="03" title={t.about.factsHeading} />
       <ul className="flex flex-wrap gap-4 lg:max-w-[75%]">
         {facts.map((f, i) => (
           <li

@@ -67,6 +67,14 @@ export const nl: Content = {
     planned: 'planned',
   },
 
+  sequence: {
+    heading: 'sequence · groeipad',
+    command: 'cat ~/.sequence',
+    label: 'Sequence',
+    current: '<- je bent hier',
+    locked: 'vergrendeld',
+  },
+
   aboutPreview: {
     heading: '~/about',
     // TODO: two short paragraphs
@@ -92,7 +100,7 @@ export const nl: Content = {
       subject: 'Subject',
       message: 'Message',
       send: './send ->',
-      sending: 'sending...',
+      sending: 'verzegelen...',
       success: 'Thanks! Your message has been sent.',
       error: 'Something went wrong. Please try again or email me directly.',
       mailtoOpened: 'Your email app should open with the message filled in.',

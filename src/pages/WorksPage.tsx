@@ -6,6 +6,7 @@ import ProjectGrid from '../components/projects/ProjectGrid'
 import ProjectFilters from '../components/projects/ProjectFilters'
 import { emptyFilters, filterProjects, type Filters } from '../components/projects/filters'
 import PageEdgeDecor from '../components/decor/PageEdgeDecor'
+import Gear from '../components/decor/Gear'
 import { projects } from '../content/projects'
 import { useT } from '../i18n/LanguageContext'
 
@@ -24,6 +25,7 @@ export default function WorksPage() {
           { top: '30%', side: 'left' },
         ]}
       />
+      <Gear size={90} className="right-24 top-8 hidden lg:block" />
       <PageTitle id="works-title" title={t.works.title} subtitle={t.works.subtitle} />
       <ProjectFilters projects={projects} value={filters} onChange={setFilters} />
       {shown.length === 0 && (

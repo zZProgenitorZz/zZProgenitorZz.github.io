@@ -67,6 +67,14 @@ export const en = {
     planned: 'planned',
   },
 
+  sequence: {
+    heading: 'sequence · growth-path',
+    command: 'cat ~/.sequence',
+    label: 'Sequence',
+    current: '<- you are here',
+    locked: 'locked',
+  },
+
   aboutPreview: {
     heading: '~/about',
     // TODO: two short paragraphs
@@ -92,7 +100,7 @@ export const en = {
       subject: 'Subject',
       message: 'Message',
       send: './send ->',
-      sending: 'sending...',
+      sending: 'sealing...',
       success: 'Thanks! Your message has been sent.',
       error: 'Something went wrong. Please try again or email me directly.',
       mailtoOpened: 'Your email app should open with the message filled in.',
