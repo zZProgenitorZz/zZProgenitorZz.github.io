@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg text-muted font-mono antialiased;
+  }
+  ::selection {
+    @apply bg-accent/40;
+  }
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [tabindex]:not([tabindex='-1']) {
+    @apply focus-visible:outline focus-visible:outline-1 focus-visible:outline-accent focus-visible:outline-offset-2;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1024px] px-4 md:px-8;
+  }
+}
