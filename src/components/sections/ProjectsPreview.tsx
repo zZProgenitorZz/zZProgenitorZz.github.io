@@ -13,9 +13,10 @@ export default function ProjectsPreview() {
     <Section labelledBy="projects-heading">
       <SectionHeading
         id="projects-heading"
+        num="01"
         title={t.projects.heading}
         action={
-          <Link to="/works" className="transition-colors hover:text-fg">
+          <Link to="/works" className="text-accent-2 transition-colors hover:text-fg">
             {t.projects.viewAll}
           </Link>
         }

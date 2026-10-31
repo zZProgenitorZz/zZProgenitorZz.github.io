@@ -123,7 +123,7 @@ export default function MobileMenu({ items }: { items: NavItem[] }) {
                   aria-current={item.active ? 'page' : undefined}
                   className={`inline-block min-h-11 transition-colors hover:text-fg ${item.active ? 'font-medium text-fg' : 'text-muted'}`}
                 >
-                  <span className="text-accent">#</span>
+                  {item.active && <span aria-hidden="true" className="mr-3 inline-block h-3 w-3 bg-accent-2" />}
                   {item.label}
                 </Link>
               </li>

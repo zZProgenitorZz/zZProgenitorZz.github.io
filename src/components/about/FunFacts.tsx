@@ -1,26 +1,38 @@
 import Section from '../ui/Section'
 import SectionHeading from '../ui/SectionHeading'
-import DotGrid from '../decor/DotGrid'
-import OutlineSquare from '../decor/OutlineSquare'
+import CornerBrackets from '../decor/CornerBrackets'
+import Crosshair from '../decor/Crosshair'
 import { facts } from '../../content/facts'
 import { useLang, useT } from '../../i18n/LanguageContext'
 import { rich } from '../../lib/rich'
 
+/** Fun facts as a /** ... *\/ comment block. */
 export default function FunFacts() {
   const t = useT()
   const { lang } = useLang()
   return (
     <Section labelledBy="facts-heading">
-      <SectionHeading id="facts-heading" title={t.about.factsHeading} />
-      <ul className="flex flex-wrap gap-4 lg:max-w-[75%]">
-        {facts.map((f, i) => (
-          <li key={i} className="inline-block border border-line px-2 py-1 text-muted">
-            {rich(f[lang], 'text-fg')}
-          </li>
-        ))}
-      </ul>
-      <DotGrid rows={5} cols={5} className="right-16 top-12 hidden lg:block" />
-      <OutlineSquare size={80} color="line" className="bottom-4 right-40 hidden lg:block" />
+      <SectionHeading id="facts-heading" num="02" title={t.about.factsHeading} />
+      <div className="relative border border-line bg-surface p-4 md:p-6 lg:max-w-[75%]">
+        <p aria-hidden="true" className="text-line-strong">
+          {'/**'}
+        </p>
+        <ul>
+          {facts.map((f, i) => (
+            <li key={i} className="flex gap-3">
+              <span aria-hidden="true" className="text-line-strong">
+                *
+              </span>
+              <span className="min-w-0">{rich(f[lang], 'font-bold text-fg')}</span>
+            </li>
+          ))}
+        </ul>
+        <p aria-hidden="true" className="text-line-strong">
+          {' */'}
+        </p>
+        <CornerBrackets always />
+      </div>
+      <Crosshair className="right-16 top-16 hidden lg:block" />
     </Section>
   )
 }

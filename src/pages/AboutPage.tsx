@@ -1,15 +1,11 @@
 import PageTitle from '../components/ui/PageTitle'
 import Section from '../components/ui/Section'
 import SectionHeading from '../components/ui/SectionHeading'
-import SkillCard from '../components/about/SkillCard'
+import Grimoire from '../components/about/Grimoire'
 import FunFacts from '../components/about/FunFacts'
-import DotGrid from '../components/decor/DotGrid'
-import OutlineSquare from '../components/decor/OutlineSquare'
+import CornerBrackets from '../components/decor/CornerBrackets'
 import PageEdgeDecor from '../components/decor/PageEdgeDecor'
-import { skills, type SkillCategory } from '../content/skills'
 import { useT } from '../i18n/LanguageContext'
-
-const order: SkillCategory[] = ['languages', 'frameworks', 'databases', 'tools', 'other']
 
 export default function AboutPage() {
   const t = useT()
@@ -31,21 +27,16 @@ export default function AboutPage() {
               <p key={i}>{p}</p>
             ))}
           </div>
-          <div className="relative mx-auto w-full max-w-[320px]">
-            <OutlineSquare size={80} color="accent" className="-left-6 top-1/2 hidden md:block" />
-            <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} className="relative block h-auto w-full" />
-            <DotGrid rows={5} cols={5} className="-right-4 bottom-4 hidden md:block" />
+          <div className="relative mx-auto w-full max-w-[280px] border border-line bg-surface p-3">
+            <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} className="block h-auto w-full" />
+            <CornerBrackets always size={14} />
           </div>
         </div>
       </Section>
 
       <Section labelledBy="about-skills-heading">
-        <SectionHeading id="about-skills-heading" title={a.skillsHeading} />
-        <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))]">
-          {order.map((key) => (
-            <SkillCard key={key} title={t.skills[key]} items={skills[key]} />
-          ))}
-        </div>
+        <SectionHeading id="about-skills-heading" num="01" title={a.skillsHeading} />
+        <Grimoire />
       </Section>
 
       <FunFacts />

@@ -6,8 +6,8 @@ export default function Logo({ onClick }: { onClick?: () => void }) {
   return (
     <Link to="/" onClick={onClick} className="inline-flex min-h-11 items-center gap-2 font-bold text-fg">
       <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <rect x="0.5" y="0.5" width="19" height="19" stroke="#ABB2BF" />
-        <rect x="5.5" y="5.5" width="9" height="9" stroke="#C778DD" />
+        <rect x="0.5" y="0.5" width="19" height="19" stroke="#6B6F8E" />
+        <rect x="5.5" y="5.5" width="9" height="9" stroke="#FF6AC1" />
       </svg>
       {t.name}
     </Link>

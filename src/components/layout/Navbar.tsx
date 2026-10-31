@@ -20,9 +20,9 @@ export default function Navbar() {
                 <Link
                   to={item.to}
                   aria-current={item.active ? 'page' : undefined}
-                  className={`transition-colors hover:text-fg ${item.active ? 'font-medium text-fg' : 'text-muted'}`}
+                  className={`inline-flex items-center gap-2 transition-colors hover:text-fg ${item.active ? 'font-bold text-fg' : 'text-muted'}`}
                 >
-                  <span className="text-accent">#</span>
+                  {item.active && <span aria-hidden="true" className="h-1.5 w-1.5 bg-accent-2" />}
                   {item.label}
                 </Link>
               </li>

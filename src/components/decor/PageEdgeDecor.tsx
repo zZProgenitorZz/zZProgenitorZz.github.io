@@ -1,11 +1,11 @@
-import DotGrid from './DotGrid'
-import OutlineSquare from './OutlineSquare'
+import Crosshair from './Crosshair'
+import CornerBrackets from './CornerBrackets'
 
 export type EdgeItem = { top: string; side: 'left' | 'right' }
 
 /**
- * Desktop-only decor at the page edges: a 2x4 dot grid near the left edge,
- * an outline square half off-screen at the right edge.
+ * Desktop-only decor at the page edges: crosshairs near the left edge (xl+),
+ * corner-bracket frames half off-screen at the right edge (lg+).
  * Place inside a `relative` page wrapper; `top` is a percentage so it never extends the page.
  */
 export default function PageEdgeDecor({ items }: { items: EdgeItem[] }) {
@@ -13,15 +13,16 @@ export default function PageEdgeDecor({ items }: { items: EdgeItem[] }) {
     <>
       {items.map((it, i) =>
         it.side === 'left' ? (
-          <DotGrid key={i} rows={4} cols={2} className="left-14 hidden xl:block" style={{ top: it.top }} />
+          <Crosshair key={i} size={20} className="left-14 hidden xl:block" style={{ top: it.top }} />
         ) : (
-          <OutlineSquare
+          <div
             key={i}
-            size={64}
-            color={i % 2 ? 'accent' : 'line'}
-            className="-right-8 hidden lg:block"
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-8 hidden h-16 w-16 lg:block"
             style={{ top: it.top }}
-          />
+          >
+            <CornerBrackets always size={14} />
+          </div>
         ),
       )}
     </>

@@ -46,3 +46,15 @@ Without it, the form opens a `mailto:` link instead.
 
 - **Vercel / Netlify**: import the repo; build command `npm run build`, output `dist`. For Netlify add `public/_redirects` with `/* /index.html 200`; Vercel needs a rewrite of all paths to `/index.html` in `vercel.json`. Set `VITE_FORMSPREE_ID` in the project env vars.
 - **GitHub Pages**: set `base: '/<repo-name>/'` in `vite.config.ts` and switch `BrowserRouter` to `HashRouter` in `src/App.tsx` (or add a `404.html` redirect). Image paths in content start with `/images/`, so prefix them with the base (or use relative paths) when using a sub-path.
+
+## Theme: Arcane terminal (`theme/arcane-terminal`)
+
+Concept: the code-editor/terminal portfolio, where code is spellcraft. Palette: `#16161E` background, purple accent, magenta (`accent-2`) for active states and the cursor, mint (`ok`) for success/shipped. JetBrains Mono everywhere (no extra font). Hero is a terminal window running `invoke whoami`; skills are a syntax-highlighted `grimoire.ts` generated from `content/skills.ts`; the growth path is a `git log --graph` of sequences; the footer is an editor status bar (branch, errors, EN | NL, UTF-8, Amsterdam time). Decor: corner brackets, crosshairs, a barely visible 32px blueprint grid on the hero, a slowly rotating rune circle (SVG glyph rings). Animations (cursor blink, rune rotation) are CSS-only and switched off under `prefers-reduced-motion`.
+
+Edit theme content here:
+
+- `src/content/projects.ts`: each project has `status` (`shipped` / `wip` / `school`), `year` and `tags`; these drive the `--filter=`, `--status=` and `--year=` toggles on `/works`.
+- `src/content/skills.ts`: includes a `learning` category.
+- `src/content/sequences.ts`: growth path; the `current: true` step is shown as `level:` in the hero and as `HEAD` in the log.
+- `src/content/en.ts` / `nl.ts`: hero command, stack line, headings, button text.
+- Colors: `tailwind.config.ts`.
