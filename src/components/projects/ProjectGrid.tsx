@@ -5,12 +5,22 @@ import type { Project } from '../../content/projects'
 type Props = { projects: Project[]; variant?: 'large' | 'small' }
 
 export default function ProjectGrid({ projects, variant = 'large' }: Props) {
-  const cols = variant === 'small' ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3'
+  if (variant === 'small') {
+    return (
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {projects.map((p) => (
+          <li key={p.id} className="flex flex-col [&>article]:flex-1">
+            <SmallProjectCard project={p} />
+          </li>
+        ))}
+      </ul>
+    )
+  }
   return (
-    <ul className={`grid gap-4 ${cols}`}>
+    <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((p) => (
-        <li key={p.id} className="flex flex-col [&>article]:flex-1">
-          {variant === 'small' ? <SmallProjectCard project={p} /> : <ProjectCard project={p} />}
+        <li key={p.id} className="mx-auto w-full max-w-[320px] sm:max-w-none">
+          <ProjectCard project={p} />
         </li>
       ))}
     </ul>

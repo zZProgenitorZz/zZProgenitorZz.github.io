@@ -44,6 +44,8 @@ export const en = {
     filterYear: '--year=',
     noMatch: 'no spells match these flags',
     reset: '--reset',
+    showDetails: 'Show details',
+    showFront: 'Show front',
   },
 
   skills: {
@@ -117,7 +119,7 @@ export const en = {
     ],
     imageAlt: 'Portrait of the developer',
     skillsHeading: '~/skills',
-    factsHeading: '~/fun-facts',
+    factsHeading: '~/secrets',
   },
 
   footer: {

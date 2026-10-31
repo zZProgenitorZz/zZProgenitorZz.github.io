@@ -44,6 +44,8 @@ export const nl: Content = {
     filterYear: '--year=',
     noMatch: 'no spells match these flags',
     reset: '--reset',
+    showDetails: 'Toon details',
+    showFront: 'Toon voorkant',
   },
 
   skills: {
@@ -117,7 +119,7 @@ export const nl: Content = {
     ],
     imageAlt: 'Portrait of the developer',
     skillsHeading: '~/skills',
-    factsHeading: '~/fun-facts',
+    factsHeading: '~/geheimen',
   },
 
   footer: {
