@@ -5,6 +5,8 @@ type Props = {
   variant?: 'primary' | 'ghost'
   size?: 'md' | 'sm'
   href?: string
+  /** Render a plain download link (also for internal paths such as /cv/file.pdf). */
+  download?: boolean
   className?: string
   children: ReactNode
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'children'>
@@ -19,9 +21,16 @@ const sizes = {
 }
 
 /** Square button. Renders a link when `href` is set (internal paths use the router). */
-export default function Button({ variant = 'primary', size = 'md', href, className = '', children, ...rest }: Props) {
+export default function Button({ variant = 'primary', size = 'md', href, download, className = '', children, ...rest }: Props) {
   const cls = `inline-flex min-h-11 items-center justify-center border transition-colors md:min-h-0 ${sizes[size]} ${variants[variant]} ${className}`
   if (href) {
+    if (download) {
+      return (
+        <a href={href} download className={cls}>
+          {children}
+        </a>
+      )
+    }
     if (href.startsWith('/')) {
       return (
         <Link to={href} className={cls}>

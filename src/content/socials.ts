@@ -1,8 +1,14 @@
-export type Socials = { email: string; github: string; linkedin: string }
+export type Socials = {
+  email: string
+  github: string
+  linkedin: string
+  /** Optional CV download. Empty = button hidden. */
+  cv?: string
+}
 
-// TODO: your real links.
 export const socials: Socials = {
-  email: 'hello@example.com',
-  github: 'https://github.com/your-username',
-  linkedin: 'https://www.linkedin.com/in/your-username',
+  email: 'Shantosh-2002@hotmail.nl',
+  github: 'https://github.com/zZProgenitorZz',
+  linkedin: 'https://www.linkedin.com/in/shantosh-merhai-225ab2315',
+  cv: '', // path to a PDF in public/, e.g. '/cv/Shantosh_Merhai_CV.pdf'. Empty = button hidden
 }

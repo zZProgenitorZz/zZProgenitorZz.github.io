@@ -1,11 +1,11 @@
 export type SkillCategory = 'languages' | 'frameworks' | 'databases' | 'tools' | 'other' | 'learning'
 
-// TODO: replace with your own skills. "learning" = what you are studying right now.
+// "learning" = what I am studying right now.
 export const skills: Record<SkillCategory, string[]> = {
-  languages: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C#', 'SQL'],
-  frameworks: ['React', 'Node.js', 'Express', 'Spring', 'Tailwind CSS'],
+  languages: ['Java', 'Python', 'C#', 'JavaScript', 'SQL'],
+  frameworks: ['Spring Boot', 'Spring Security', 'Axon Framework', 'FastAPI', 'React', 'HTMX', 'Thymeleaf', 'Tailwind CSS', 'HTML/CSS'],
   databases: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLite'],
-  tools: ['Git', 'GitHub', 'Docker', 'VS Code', 'Figma', 'Linux'],
-  other: ['REST', 'Agile', 'Testing', 'CI/CD'],
-  learning: ['Rust', 'Kubernetes', 'LLM tooling'],
+  tools: ['Git', 'GitLab', 'GitLab CI', 'Docker', 'Maven', 'AWS'],
+  other: ['REST APIs', 'Event Sourcing', 'CQRS', 'Event Modeling', 'Agile / Scrum', 'Testing (JUnit, pytest)', 'Claude & ChatGPT', 'Unreal Engine', 'Houdini', 'Maya'],
+  learning: ['TypeScript', 'Docker', 'CI/CD'],
 }

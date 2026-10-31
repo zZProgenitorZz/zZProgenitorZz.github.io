@@ -54,7 +54,7 @@ export default function Journey({ num, decor }: Props) {
                     <span className="min-h-3 w-px flex-1 bg-line-strong/50" />
                   ))}
               </div>
-              <div className={`min-w-0 pb-4 ${state === 'future' ? 'fogged' : ''} ${r.seq === 0 ? 'fogged-deep' : ''}`}>
+              <div className={`min-w-0 pb-4 ${state === 'future' ? 'fogged' : ''} ${r.seq <= 2 ? 'fogged-deep' : ''}`}>
                 <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm">
                   <span className={state === 'future' ? 'text-fg' : 'text-accent'}>{state === 'future' ? '???????' : hash(r.seq)}</span>
                   {r.current && (
@@ -65,7 +65,7 @@ export default function Journey({ num, decor }: Props) {
                   )}
                   {state === 'future' && <span className="text-xs text-fg">({j.planned})</span>}
                   {state !== 'future' && r.year && <span className="text-xs text-accent">{r.year}</span>}
-                  {r.seq === 0 && <span className="sr-only">{j.locked}</span>}
+                  {r.seq <= 2 && <span className="sr-only">{j.locked}</span>}
                 </p>
                 <h3 className="text-base font-bold text-fg">
                   {j.label} {r.seq} — {r.title[lang]}

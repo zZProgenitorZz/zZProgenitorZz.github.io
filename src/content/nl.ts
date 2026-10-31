@@ -1,48 +1,46 @@
-// TODO: translate to Dutch. Currently a copy of en.ts.
 import type { Content } from './en'
 
 export const nl: Content = {
-  // TODO: your name and role
-  name: 'Your Name',
-  role: 'Software Engineering student & developer',
+  name: 'Shantosh Merhai',
+  role: 'Laatstejaars student Software Engineering',
 
   nav: {
     home: '~/home',
     works: '~/works',
     about: '~/about',
     contacts: '~/contact',
-    menuOpen: 'Open menu',
-    menuClose: 'Close menu',
-    language: 'Language',
-    mainNav: 'Main navigation',
-    social: 'Social links',
+    menuOpen: 'Menu openen',
+    menuClose: 'Menu sluiten',
+    language: 'Taal',
+    mainNav: 'Hoofdnavigatie',
+    social: 'Sociale links',
   },
 
   hero: {
     command: 'invoke whoami',
     keys: { name: 'name', role: 'role', stack: 'stack', level: 'level', status: 'status', bio: 'bio' },
-    stack: 'TypeScript · React · Python', // TODO: your main stack
-    // TODO: one or two plain sentences about what you build
-    bio: 'TODO: I design and build software, from small tools to full web apps.',
+    stack: 'Python · FastAPI · Java · React · Cloud',
+    bio: 'Ik bouw backends en webapps. Het laatst een medische annotatietool met FastAPI en MongoDB, met Docker uitgerold op AWS.',
     levelLabel: 'Sequence',
-    cta: 'Contact me ->',
-    portraitAlt: 'Portrait of the developer', // TODO: describe your portrait
-    currentProject: 'TODO: Project name', // TODO
+    cta: 'Neem contact op ->',
+    downloadCv: '[ download cv ]',
+    portraitAlt: 'Portret van Shantosh Merhai',
+    currentProject: 'GateKeeper (schoolproject)',
     windowTitle: '~/{name}',
   },
 
   projects: {
     heading: '~/projects',
     viewAll: 'ls --all ->',
-    live: '[ cast live ]',
-    repo: '[ source ]',
-    thumbnailAlt: 'Screenshot of {title}',
+    live: '[ live bekijken ]',
+    repo: '[ broncode ]',
+    thumbnailAlt: 'Screenshot van {title}',
     status: { shipped: '[shipped]', wip: '[wip]', school: '[school]' },
     filterTitle: 'flags',
     filterTags: '--filter=',
     filterStatus: '--status=',
     filterYear: '--year=',
-    noMatch: 'no spells match these flags',
+    noMatch: 'geen spreuken passen bij deze flags',
     reset: '--reset',
     showDetails: 'Toon details',
     showFront: 'Toon voorkant',
@@ -51,12 +49,12 @@ export const nl: Content = {
   skills: {
     heading: '~/skills',
     file: 'grimoire.ts',
-    languages: 'Languages',
+    languages: 'Talen',
     frameworks: 'Frameworks',
     databases: 'Databases',
     tools: 'Tools',
-    other: 'Other',
-    learning: 'Learning',
+    other: 'Overig',
+    learning: 'Aan het leren',
   },
 
   journey: {
@@ -64,74 +62,71 @@ export const nl: Content = {
     command: 'git log --graph --oneline',
     label: 'Sequence',
     head: 'HEAD -> main',
-    planned: 'planned',
+    planned: 'gepland',
     current: 'je bent hier',
     locked: 'vergrendeld',
   },
 
   aboutPreview: {
     heading: '~/about',
-    // TODO: two short paragraphs
     paragraphs: [
-      'TODO: Hello! I am a Software Engineering student who enjoys building things that work.',
-      'TODO: I like learning by building: every project teaches me something new.',
+      "Ik ben Shantosh, laatstejaars student Software Engineering aan De Haagse Hogeschool. Ik werk aan zowel backend als frontend, met de meeste ervaring in Java, Python en React.",
+      "Tijdens mijn stage bij AiDx Medical nam ik de backend en de deployment van een medische annotatietool op me, zonder dat ik dat eerder had gedaan. Zo pak ik nieuwe dingen aan: ik begin, zoek uit hoe het werkt en leer onderweg.",
     ],
     cta: 'cat about.md ->',
-    imageAlt: 'Portrait of the developer',
+    imageAlt: 'Portret van Shantosh Merhai',
   },
 
   contact: {
     heading: '~/contact',
-    // TODO
     intro:
-      "I'm interested in freelance opportunities and new projects. If you have other requests or questions, don't hesitate to contact me.",
-    boxTitle: 'Message me here',
+      "Heb je een project, een vraag of wil je gewoon over code praten? Stuur me een bericht, dan reageer ik zo snel mogelijk.",
+    boxTitle: 'Stuur me hier een bericht',
     scriptTitle: 'send-message.sh',
-    scriptComment: '# fill in the fields, then run ./send',
+    scriptComment: '# vul de velden in en voer ./send uit',
     form: {
-      name: 'Name',
-      email: 'Email',
-      subject: 'Subject',
-      message: 'Message',
+      name: 'Naam',
+      email: 'E-mail',
+      subject: 'Onderwerp',
+      message: 'Bericht',
       send: './send ->',
       sending: 'verzegelen...',
-      success: 'Thanks! Your message has been sent.',
-      error: 'Something went wrong. Please try again or email me directly.',
-      mailtoOpened: 'Your email app should open with the message filled in.',
-      invalidEmail: 'Please enter a valid email address.',
-      required: 'This field is required.',
+      success: 'Bedankt! Je bericht is verzonden.',
+      error: 'Er ging iets mis. Probeer het opnieuw of mail me rechtstreeks.',
+      mailtoOpened: 'Je e-mailapp zou moeten openen met het bericht al ingevuld.',
+      invalidEmail: 'Vul een geldig e-mailadres in.',
+      required: 'Dit veld is verplicht.',
     },
   },
 
   works: {
     title: 'cd ~/projects',
-    subtitle: 'List of my projects',
+    subtitle: 'Lijst van mijn projecten',
     completeApps: '~/projects/apps',
     smallProjects: '~/projects/small',
   },
 
   about: {
     title: 'cd ~/about',
-    subtitle: 'Who am I?',
-    // TODO: intro paragraphs
+    subtitle: 'Wie ben ik?',
     paragraphs: [
-      'TODO: I am a Software Engineering student with a background in ... .',
-      'TODO: I am interested in software development, AI and technology.',
-      'TODO: I learn by building: I pick a problem, build a first version, and improve it.',
+      "Ik ben laatstejaars student HBO-ICT Software Engineering aan De Haagse Hogeschool. Op dit moment bouw ik als schoolproject GateKeeper, een event-sourced inlog- en toegangsdienst.",
+      "Bij AiDx Medical was ik verantwoordelijk voor de backend en de deployment van een webapp voor het annoteren van medische beelden: REST API's in FastAPI, een MongoDB-database en Docker-containers op AWS. In het voorjaar van 2026 volgde ik een internationale minor aan de University of Derby, waar ik werkte met Unreal Engine, Houdini en Maya.",
+      "Ik leer door te bouwen: ik kies iets wat ik nog niet eerder heb gedaan, zorg dat een eerste versie werkt en verbeter het van daaruit. Naast programmeren lees ik veel, kijk ik films en series, game ik en ga ik karten.",
     ],
-    imageAlt: 'Portrait of the developer',
+    imageAlt: 'Portret van Shantosh Merhai',
     skillsHeading: '~/skills',
     factsHeading: '~/geheimen',
   },
 
   footer: {
-    tagline: 'Software Engineering student & developer', // TODO
-    copyright: '© Copyright 2026. Made by {name}',
+    tagline: 'Student Software Engineering · backend & full-stack',
+    copyright: '© Copyright 2026. Gemaakt door {name}',
     branch: 'main',
     errors: '0 errors',
     encoding: 'UTF-8',
-    timeLabel: 'Amsterdam',
+    timeLabel: 'Den Haag',
   },
 
-  notFound: { text: 'Page not found.', back: 'Back home' },
+  notFound: { text: 'Pagina niet gevonden.', back: 'Terug naar home' },
 }

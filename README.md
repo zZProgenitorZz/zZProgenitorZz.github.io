@@ -13,17 +13,21 @@ npm run lint
 
 ## Edit content
 
-All copy and data lives in `src/content/`. Search the repo for `TODO:` to find every placeholder.
+All copy and data lives in `src/content/`. English and Dutch live side by side (`en.ts` / `nl.ts`; most data files hold both languages per entry).
 
 | File | What it holds |
 | --- | --- |
-| `en.ts` / `nl.ts` | UI text, name, hero, about text (NL is currently a copy of EN) |
+| `en.ts` / `nl.ts` | UI text, name, hero, about text (EN and NL) |
 | `projects.ts` | Projects |
 | `skills.ts` | Skills per category |
 | `facts.ts` | Fun facts (`**word**` renders white) |
-| `socials.ts` | Email, GitHub, LinkedIn URLs |
+| `socials.ts` | Email, GitHub, LinkedIn URLs, optional `cv` path |
 
-Images go in `public/images/` (`portrait.png` is a placeholder; replace it with a transparent PNG).
+Images go in `public/images/`:
+
+- Portrait: `public/images/portrait.png` (transparent PNG).
+- Project screenshots: replace `public/images/project-1.svg` … `project-4.svg` (update the `image` path in `projects.ts` if the extension changes).
+- CV: put the PDF in `public/cv/` and set `socials.cv` to its path, e.g. `'/cv/Shantosh_Merhai_CV.pdf'`. While `cv` is empty the download button is hidden.
 
 ## Add a project
 

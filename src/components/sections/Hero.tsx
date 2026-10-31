@@ -2,6 +2,7 @@ import Button from '../ui/Button'
 import TerminalWindow from '../ui/TerminalWindow'
 import RuneCircle from '../decor/RuneCircle'
 import CornerBrackets from '../decor/CornerBrackets'
+import { socials } from '../../content/socials'
 import { sequences } from '../../content/sequences'
 import { useLang, useT } from '../../i18n/LanguageContext'
 import { fill } from '../../lib/rich'
@@ -71,9 +72,14 @@ export default function Hero() {
             </p>
             <CornerBrackets always />
           </TerminalWindow>
-          <Button href="/#contacts" className="mt-8">
-            {h.cta}
-          </Button>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href="/#contacts">{h.cta}</Button>
+            {socials.cv && (
+              <Button href={socials.cv} download variant="ghost">
+                {h.downloadCv}
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </section>

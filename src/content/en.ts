@@ -2,9 +2,8 @@
 // Markup in strings: **text** = highlighted word (white in facts).
 
 export const en = {
-  // TODO: your name and role
-  name: 'Your Name',
-  role: 'Software Engineering student & developer',
+  name: 'Shantosh Merhai',
+  role: 'Final-year Software Engineering student',
 
   nav: {
     home: '~/home',
@@ -21,13 +20,13 @@ export const en = {
   hero: {
     command: 'invoke whoami',
     keys: { name: 'name', role: 'role', stack: 'stack', level: 'level', status: 'status', bio: 'bio' },
-    stack: 'TypeScript · React · Python', // TODO: your main stack
-    // TODO: one or two plain sentences about what you build
-    bio: 'TODO: I design and build software, from small tools to full web apps.',
+    stack: 'Python · FastAPI · Java · React · Cloud',
+    bio: 'I build backends and web apps. Most recently a medical annotation tool with FastAPI and MongoDB, shipped with Docker on AWS.',
     levelLabel: 'Sequence',
     cta: 'Contact me ->',
-    portraitAlt: 'Portrait of the developer', // TODO: describe your portrait
-    currentProject: 'TODO: Project name', // TODO
+    downloadCv: '[ download cv ]',
+    portraitAlt: 'Portrait of Shantosh Merhai',
+    currentProject: 'GateKeeper (school project)',
     windowTitle: '~/{name}',
   },
 
@@ -71,20 +70,18 @@ export const en = {
 
   aboutPreview: {
     heading: '~/about',
-    // TODO: two short paragraphs
     paragraphs: [
-      'TODO: Hello! I am a Software Engineering student who enjoys building things that work.',
-      'TODO: I like learning by building: every project teaches me something new.',
+      "I'm Shantosh, a final-year Software Engineering student at The Hague University of Applied Sciences. I work on both backend and frontend, with most of my experience in Java, Python and React.",
+      "During my internship at AiDx Medical I took on the backend and deployment of a medical annotation tool without having done either before. That's how I approach new things: I start, figure out how it works and learn along the way.",
     ],
     cta: 'cat about.md ->',
-    imageAlt: 'Portrait of the developer',
+    imageAlt: 'Portrait of Shantosh Merhai',
   },
 
   contact: {
     heading: '~/contact',
-    // TODO
     intro:
-      "I'm interested in freelance opportunities and new projects. If you have other requests or questions, don't hesitate to contact me.",
+      "Have a project, a question or just want to talk about code? Send me a message and I'll get back to you.",
     boxTitle: 'Message me here',
     scriptTitle: 'send-message.sh',
     scriptComment: '# fill in the fields, then run ./send',
@@ -113,24 +110,23 @@ export const en = {
   about: {
     title: 'cd ~/about',
     subtitle: 'Who am I?',
-    // TODO: intro paragraphs
     paragraphs: [
-      'TODO: I am a Software Engineering student with a background in ... .',
-      'TODO: I am interested in software development, AI and technology.',
-      'TODO: I learn by building: I pick a problem, build a first version, and improve it.',
+      "I'm a final-year HBO-ICT Software Engineering student at The Hague University of Applied Sciences. Right now I'm building GateKeeper, an event-sourced sign-in and access service, as a school project.",
+      "At AiDx Medical I was responsible for the backend and deployment of a web app for annotating medical images: REST APIs in FastAPI, a MongoDB database, and Docker containers running on AWS. In spring 2026 I did an international minor at the University of Derby, working with Unreal Engine, Houdini and Maya.",
+      "I learn by building: I pick something I haven't done before, get a first version working and improve it from there. Outside of code I read a lot, watch films and series, game and go karting.",
     ],
-    imageAlt: 'Portrait of the developer',
+    imageAlt: 'Portrait of Shantosh Merhai',
     skillsHeading: '~/skills',
     factsHeading: '~/secrets',
   },
 
   footer: {
-    tagline: 'Software Engineering student & developer', // TODO
+    tagline: 'Software Engineering student · backend & full-stack',
     copyright: '© Copyright 2026. Made by {name}',
     branch: 'main',
     errors: '0 errors',
     encoding: 'UTF-8',
-    timeLabel: 'Amsterdam',
+    timeLabel: 'The Hague',
   },
 
   notFound: { text: 'Page not found.', back: 'Back home' },
