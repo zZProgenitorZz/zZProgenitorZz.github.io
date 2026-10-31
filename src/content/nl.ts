@@ -1,5 +1,6 @@
 // TODO: translate to Dutch. Currently a copy of en.ts.
 import type { Content } from './en'
+
 export const nl: Content = {
   // TODO: your name and role
   name: 'Your Name',
@@ -18,27 +19,30 @@ export const nl: Content = {
   },
 
   hero: {
-    // TODO: highlighted role words
-    title: "Hi, I'm {name}, a **Software Engineering student** and **developer**",
-    // TODO: hero description (two lines)
+    subtitle: 'Software Engineering student · walking the path of code',
+    // TODO: hero description (two lines, plain words: what you build)
     description:
       'TODO: I design and build software, from small tools to full web apps. Two short lines about what you do.',
     cta: 'Contact me!!',
     portraitAlt: 'Portrait of the developer', // TODO: describe your portrait
-    currentlyLabel: 'Currently working on',
+    currentlyLabel: 'Current cultivation:',
     currentProject: 'TODO: Project name', // TODO
   },
 
   projects: {
-    heading: 'projects',
+    heading: 'Techniques · Projects',
     viewAll: 'View all ~~>',
     live: 'Live <~>',
     repo: 'Github <~>',
     thumbnailAlt: 'Screenshot of {title}',
+    grades: { large: 'Earth Grade', small: 'Mortal Grade' }, // TODO: adjust grade names
   },
 
   skills: {
-    heading: 'skills',
+    heading: 'Realms · Skills',
+    legend: 'Realm level',
+    // Level 1 to 5, shown on hover/focus of a skill.
+    realms: ['Qi Gathering', 'Foundation', 'Core Forming', 'Nascent Soul', 'Transcendence'],
     languages: 'Languages',
     frameworks: 'Frameworks',
     databases: 'Databases',
@@ -46,8 +50,12 @@ export const nl: Content = {
     other: 'Other',
   },
 
+  path: {
+    heading: 'Path · Journey',
+  },
+
   aboutPreview: {
-    heading: 'about-me',
+    heading: 'Origins · About me',
     // TODO: two short paragraphs
     paragraphs: [
       'TODO: Hello! I am a Software Engineering student who enjoys building things that work.',
@@ -58,7 +66,7 @@ export const nl: Content = {
   },
 
   contact: {
-    heading: 'contacts',
+    heading: 'Messages · Contact',
     // TODO
     intro:
       "I'm interested in freelance opportunities and new projects. If you have other requests or questions, don't hesitate to contact me.",
@@ -81,8 +89,8 @@ export const nl: Content = {
   works: {
     title: 'projects',
     subtitle: 'List of my projects',
-    completeApps: 'complete-apps',
-    smallProjects: 'small-projects',
+    completeApps: 'Grand Techniques · Complete apps',
+    smallProjects: 'Minor Techniques · Small projects',
   },
 
   about: {
@@ -95,8 +103,8 @@ export const nl: Content = {
       'TODO: I learn by building: I pick a problem, build a first version, and improve it.',
     ],
     imageAlt: 'Portrait of the developer',
-    skillsHeading: 'skills',
-    factsHeading: 'my-fun-facts',
+    skillsHeading: 'Realms · Skills',
+    factsHeading: 'Inner demons & insights · Fun facts',
   },
 
   footer: {

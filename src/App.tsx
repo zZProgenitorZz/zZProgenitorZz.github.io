@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { LanguageProvider, useT } from './i18n/LanguageContext'
 import Navbar from './components/layout/Navbar'
+import MistLayer from './components/decor/MistLayer'
 import SocialRail from './components/layout/SocialRail'
 import Footer from './components/layout/Footer'
 import HomePage from './pages/HomePage'
@@ -55,6 +56,7 @@ export default function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
+          <MistLayer />
           <Footer />
         </div>
       </BrowserRouter>

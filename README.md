@@ -46,3 +46,14 @@ Without it, the form opens a `mailto:` link instead.
 
 - **Vercel / Netlify**: import the repo; build command `npm run build`, output `dist`. For Netlify add `public/_redirects` with `/* /index.html 200`; Vercel needs a rewrite of all paths to `/index.html` in `vercel.json`. Set `VITE_FORMSPREE_ID` in the project env vars.
 - **GitHub Pages**: set `base: '/<repo-name>/'` in `vite.config.ts` and switch `BrowserRouter` to `HashRouter` in `src/App.tsx` (or add a `404.html` redirect). Image paths in content start with `/images/`, so prefix them with the base (or use relative paths) when using a sub-path.
+
+## Theme: Cultivation (`theme/cultivation`)
+
+Concept: growing as a developer is a cultivation journey. Night-ink background, purple "qi" accent, gold for realms and seals, jade only for breakthroughs. Headings use Cormorant Garamond (`@fontsource/cormorant-garamond`, OFL), labels and body use JetBrains Mono. Every themed name is paired with a plain label ("Techniques · Projects"). All decoration is drawn as SVG/CSS; animations are CSS-only and switched off under `prefers-reduced-motion`.
+
+Edit theme content here:
+
+- `src/content/en.ts` / `nl.ts`: section headings, hero subtitle, realm names (`skills.realms`), grade names (`projects.grades`).
+- `src/content/skills.ts`: each skill has `level` 1-5 (Qi Gathering to Transcendence).
+- `src/content/timeline.ts`: milestones of "Path · Journey".
+- Colors: `tailwind.config.ts` (`gold`, `jade`, `accent`, ...).

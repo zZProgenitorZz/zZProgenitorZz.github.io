@@ -23,7 +23,7 @@ export default function Footer() {
             <p className="mt-2">{t.footer.tagline}</p>
           </div>
           <div>
-            <p className="text-2xl font-medium text-fg">{t.footer.media}</p>
+            <p className="font-display text-2xl font-semibold text-fg">{t.footer.media}</p>
             <ul className="mt-2 flex items-center gap-2">
               <li>
                 <a href={socials.github} target="_blank" rel="noreferrer noopener" aria-label="GitHub" className={icon}>

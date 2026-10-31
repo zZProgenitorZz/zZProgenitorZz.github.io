@@ -1,5 +1,6 @@
 import Section from '../ui/Section'
 import SectionHeading from '../ui/SectionHeading'
+import ScrollPanel from '../ui/ScrollPanel'
 import ContactForm from '../contact/ContactForm'
 import ContactLinks from '../contact/ContactLinks'
 import { useT } from '../../i18n/LanguageContext'
@@ -13,9 +14,9 @@ export default function ContactSection() {
         <p>{t.contact.intro}</p>
         <ContactLinks />
       </div>
-      <div className="mt-12">
+      <ScrollPanel className="mt-12">
         <ContactForm />
-      </div>
+      </ScrollPanel>
     </Section>
   )
 }

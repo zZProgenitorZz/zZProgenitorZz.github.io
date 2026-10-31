@@ -24,3 +24,13 @@
     @apply mx-auto w-full max-w-[1024px] px-4 md:px-8;
   }
 }
+
+/* Respect reduced motion: every theme animation is CSS-only and switched off here. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

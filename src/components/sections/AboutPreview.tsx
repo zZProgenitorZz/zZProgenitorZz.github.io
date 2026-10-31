@@ -1,7 +1,7 @@
 import Section from '../ui/Section'
 import SectionHeading from '../ui/SectionHeading'
 import Button from '../ui/Button'
-import DotGrid from '../decor/DotGrid'
+import FormationFragment from '../decor/FormationFragment'
 import { useT } from '../../i18n/LanguageContext'
 
 export default function AboutPreview() {
@@ -20,8 +20,8 @@ export default function AboutPreview() {
           </Button>
         </div>
         <div className="relative mx-auto w-full max-w-[320px]">
-          <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} loading="lazy" className="block h-auto w-full" />
-          <DotGrid rows={5} cols={5} className="-right-4 bottom-4 hidden md:block" />
+          <FormationFragment variant="a" size={120} className="-right-6 bottom-4 hidden md:block" />
+          <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} loading="lazy" className="relative block h-auto w-full" />
         </div>
       </div>
     </Section>

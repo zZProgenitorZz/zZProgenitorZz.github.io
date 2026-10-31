@@ -3,8 +3,8 @@ import Section from '../components/ui/Section'
 import SectionHeading from '../components/ui/SectionHeading'
 import SkillCard from '../components/about/SkillCard'
 import FunFacts from '../components/about/FunFacts'
-import DotGrid from '../components/decor/DotGrid'
-import OutlineSquare from '../components/decor/OutlineSquare'
+import FormationArray from '../components/decor/FormationArray'
+import QiGlow from '../components/decor/QiGlow'
 import PageEdgeDecor from '../components/decor/PageEdgeDecor'
 import { skills, type SkillCategory } from '../content/skills'
 import { useT } from '../i18n/LanguageContext'
@@ -32,16 +32,19 @@ export default function AboutPage() {
             ))}
           </div>
           <div className="relative mx-auto w-full max-w-[320px]">
-            <OutlineSquare size={80} color="accent" className="-left-6 top-1/2 hidden md:block" />
+            <QiGlow className="-inset-6 hidden md:block" />
+            <FormationArray className="left-1/2 top-1/2 hidden w-[130%] max-w-none -translate-x-1/2 -translate-y-1/2 md:block" />
             <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} className="relative block h-auto w-full" />
-            <DotGrid rows={5} cols={5} className="-right-4 bottom-4 hidden md:block" />
           </div>
         </div>
       </Section>
 
       <Section labelledBy="about-skills-heading">
         <SectionHeading id="about-skills-heading" title={a.skillsHeading} />
-        <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))]">
+        <p className="-mt-4 mb-6 text-xs">
+          {t.skills.legend}: {t.skills.realms.map((r, i) => `${i + 1} ${r}`).join(' · ')}
+        </p>
+        <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))]">
           {order.map((key) => (
             <SkillCard key={key} title={t.skills[key]} items={skills[key]} />
           ))}

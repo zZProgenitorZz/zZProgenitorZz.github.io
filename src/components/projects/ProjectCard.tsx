@@ -1,6 +1,7 @@
 import Button from '../ui/Button'
 import Card from '../ui/Card'
 import Tag from '../ui/Tag'
+import Seal from '../decor/Seal'
 import { useLang, useT } from '../../i18n/LanguageContext'
 import { fill } from '../../lib/rich'
 import type { Project } from '../../content/projects'
@@ -24,21 +25,17 @@ export function ProjectLinks({ project }: { project: Project }) {
   )
 }
 
-export function TechTags({ tech }: { tech: string[] }) {
-  return (
-    <ul className="flex flex-wrap gap-x-2 border-b border-line p-2 text-xs">
-      {tech.map((x) => (
-        <Tag key={x}>{x}</Tag>
-      ))}
-    </ul>
-  )
-}
-
+/** Talisman-style card: gold bars top and bottom, seal + grade badge, optional image. */
 export default function ProjectCard({ project }: { project: Project }) {
   const t = useT()
   const { lang } = useLang()
   return (
     <Card as="article" lift className="flex flex-col">
+      <div aria-hidden="true" className="h-1 bg-gold" />
+      <div className="flex items-center justify-between border-b border-line p-2">
+        <Seal size={24} />
+        <span className="border border-gold px-2 py-0.5 text-xs text-gold">{t.projects.grades[project.size]}</span>
+      </div>
       {project.image && (
         <img
           src={project.image}
@@ -47,12 +44,17 @@ export default function ProjectCard({ project }: { project: Project }) {
           className="aspect-[16/10] w-full border-b border-line object-cover"
         />
       )}
-      <TechTags tech={project.tech} />
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="text-2xl font-medium text-fg">{project.title}</h3>
-        <p className="mt-2 flex-1">{project.description[lang]}</p>
+        <h3 className="font-display text-2xl font-semibold text-fg">{project.title}</h3>
+        <ul className="mt-1 flex flex-wrap gap-x-2 text-xs">
+          {project.tech.map((x) => (
+            <Tag key={x}>{x}</Tag>
+          ))}
+        </ul>
+        <p className="mt-3 flex-1">{project.description[lang]}</p>
         <ProjectLinks project={project} />
       </div>
+      <div aria-hidden="true" className="h-1 bg-gold" />
     </Card>
   )
 }

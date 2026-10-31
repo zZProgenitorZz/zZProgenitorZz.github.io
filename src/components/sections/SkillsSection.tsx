@@ -1,8 +1,7 @@
 import Section from '../ui/Section'
 import SectionHeading from '../ui/SectionHeading'
 import SkillCard from '../about/SkillCard'
-import DotGrid from '../decor/DotGrid'
-import OutlineSquare from '../decor/OutlineSquare'
+import FormationFragment from '../decor/FormationFragment'
 import { skills } from '../../content/skills'
 import { useT } from '../../i18n/LanguageContext'
 
@@ -13,28 +12,28 @@ export default function SkillsSection() {
   return (
     <Section labelledBy="skills-heading">
       <SectionHeading id="skills-heading" title={t.skills.heading} />
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+      <p className="-mt-4 mb-6 text-xs">
+        {t.skills.legend}: {t.skills.realms.map((r, i) => `${i + 1} ${r}`).join(' · ')}
+      </p>
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
         {/* Decorative cluster (desktop only) */}
         <div aria-hidden="true" className="relative hidden min-h-[320px] lg:block">
-          <DotGrid rows={5} cols={5} className="left-8 top-0" />
-          <OutlineSquare size={88} color="accent" className="left-32 top-24" />
-          <OutlineSquare size={88} color="accent" className="left-44 top-36" />
-          <OutlineSquare size={32} color="line" className="left-6 top-56" />
-          <OutlineSquare size={24} color="line" className="left-72 top-6" />
-          <DotGrid rows={3} cols={3} className="bottom-4 left-48" />
+          <FormationFragment variant="a" size={150} className="left-10 top-4" />
+          <FormationFragment variant="c" size={96} className="left-40 top-36" />
+          <FormationFragment variant="b" size={110} className="left-6 top-52" />
         </div>
 
         {/* Staggered masonry: three columns from lg, flat grid below */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:items-start">
-          <div className="contents lg:flex lg:flex-col lg:gap-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(3,minmax(0,1fr))] lg:items-start">
+          <div className="contents lg:flex lg:min-w-0 lg:flex-col lg:gap-4">
             {card('languages')}
             {card('databases')}
           </div>
-          <div className="contents lg:mt-12 lg:flex lg:flex-col lg:gap-4">
+          <div className="contents lg:mt-12 lg:flex lg:min-w-0 lg:flex-col lg:gap-4">
             {card('tools')}
             {card('other')}
           </div>
-          <div className="contents lg:mt-6 lg:flex lg:flex-col lg:gap-4">{card('frameworks')}</div>
+          <div className="contents lg:mt-6 lg:flex lg:min-w-0 lg:flex-col lg:gap-4">{card('frameworks')}</div>
         </div>
       </div>
     </Section>
