@@ -4,7 +4,7 @@ import Button from '../ui/Button'
 import Tag from '../ui/Tag'
 import CornerBrackets from '../decor/CornerBrackets'
 import RuneCircle from '../decor/RuneCircle'
-import { statusColor } from './status'
+import StatusLabels from './StatusLabels'
 import { useLang, useT } from '../../i18n/LanguageContext'
 import { fill } from '../../lib/rich'
 import { roman } from '../../lib/roman'
@@ -128,7 +128,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             <div className="mt-3 text-center">
               <h3 className="text-lg font-bold leading-tight text-fg">{project.title}</h3>
               {arcana && <p className="mt-1 text-xs text-accent">{arcana}</p>}
-              <p className={`mt-1 text-xs ${statusColor[project.status]}`}>{t.projects.status[project.status]}</p>
+              <p className="mt-1 text-xs">
+                <StatusLabels status={project.status} />
+              </p>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import Button from '../ui/Button'
 import Tag from '../ui/Tag'
 import CornerBrackets from '../decor/CornerBrackets'
-import { statusColor } from './status'
+import StatusLabels from './StatusLabels'
 import { useLang, useT } from '../../i18n/LanguageContext'
 import type { Project } from '../../content/projects'
 
@@ -15,7 +15,9 @@ export default function SmallProjectCard({ project }: { project: Project }) {
         <span className="min-w-0 truncate border-r border-t-2 border-r-line border-t-accent-2 bg-bg px-3 py-2 text-fg">
           {project.id}.ts
         </span>
-        <span className={`shrink-0 px-3 py-2 ${statusColor[project.status]}`}>{t.projects.status[project.status]}</span>
+        <span className="shrink-0 px-3 py-2">
+          <StatusLabels status={project.status} />
+        </span>
       </div>
       <div className="flex flex-1 flex-col p-4">
         <h3 className="text-lg font-bold text-fg">{project.title}</h3>

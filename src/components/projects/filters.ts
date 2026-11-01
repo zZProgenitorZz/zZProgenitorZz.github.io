@@ -8,7 +8,7 @@ export function filterProjects(list: Project[], f: Filters): Project[] {
   return list.filter(
     (p) =>
       (f.tags.length === 0 || p.tags.some((x) => f.tags.includes(x))) &&
-      (f.status.length === 0 || f.status.includes(p.status)) &&
+      (f.status.length === 0 || p.status.some((x) => f.status.includes(x))) &&
       (f.years.length === 0 || f.years.includes(p.year)),
   )
 }

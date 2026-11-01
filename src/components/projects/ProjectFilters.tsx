@@ -10,7 +10,7 @@ type Props = { projects: Project[]; value: Filters; onChange: (f: Filters) => vo
 export default function ProjectFilters({ projects, value, onChange }: Props) {
   const t = useT()
   const tags = [...new Set(projects.flatMap((p) => p.tags))].sort()
-  const statuses = [...new Set(projects.map((p) => p.status))]
+  const statuses = [...new Set(projects.flatMap((p) => p.status))]
   const years = [...new Set(projects.map((p) => p.year))].sort((a, b) => b - a)
   const active = value.tags.length + value.status.length + value.years.length > 0
 

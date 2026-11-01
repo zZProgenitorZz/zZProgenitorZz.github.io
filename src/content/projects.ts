@@ -14,7 +14,7 @@ export type Project = {
   repo?: string
   size: 'large' | 'small'
   featured?: boolean
-  status: ProjectStatus
+  status: ProjectStatus[]
   year: number
   /** Filter tags, e.g. 'web', 'ai', 'backend', 'tool'. */
   tags: string[]
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     image: '/images/project-1.svg',
     size: 'large',
     featured: true,
-    status: 'wip',
+    status: ['school', 'wip'],
     year: 2026,
     tags: ['backend', 'web'],
     arcana: card(4, 'The Emperor', 'De Keizer'),
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/zZProgenitorZz/Personal-tracker',
     size: 'large',
     featured: true,
-    status: 'wip',
+    status: ['wip'],
     year: 2026,
     tags: ['web', 'backend', 'ai'],
     arcana: card(9, 'The Hermit', 'De Kluizenaar'),
@@ -71,9 +71,10 @@ export const projects: Project[] = [
     tech: ['Python', 'FastAPI', 'MongoDB', 'React', 'Docker', 'AWS'],
     image: '/images/projects/medical-annotation-tool.webp',
     imagePosition: '85% center',
+    live: 'https://tool.aidx-medical.com/',
     size: 'large',
     featured: true,
-    status: 'school',
+    status: ['shipped'],
     year: 2025,
     tags: ['web', 'backend'],
     arcana: card(1, 'The Magician', 'De Magiër'),
@@ -91,7 +92,7 @@ export const projects: Project[] = [
     imagePosition: '25% center',
     repo: 'https://github.com/zZProgenitorZz/Portfolio',
     size: 'large',
-    status: 'wip',
+    status: ['shipped'],
     year: 2026,
     tags: ['web'],
     arcana: card(0, 'The Fool', 'De Dwaas'),
