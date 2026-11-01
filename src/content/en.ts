@@ -17,6 +17,10 @@ export const en = {
     social: 'Social links',
   },
 
+  common: {
+    downloadCv: '[ download cv ]',
+  },
+
   hero: {
     command: 'invoke whoami',
     keys: { name: 'name', role: 'role', stack: 'stack', level: 'level', status: 'status', bio: 'bio' },
@@ -24,7 +28,6 @@ export const en = {
     bio: 'I build backends and web apps. Most recently a medical annotation tool with FastAPI and MongoDB, shipped with Docker on AWS.',
     levelLabel: 'Sequence',
     cta: 'Contact me ->',
-    downloadCv: '[ download cv ]',
     portraitAlt: 'Portrait of Shantosh Merhai',
     currentProject: 'GateKeeper (school project)',
     windowTitle: '~/{name}',
@@ -93,7 +96,8 @@ export const en = {
       send: './send ->',
       sending: 'sealing...',
       success: 'Thanks! Your message has been sent.',
-      error: 'Something went wrong. Please try again or email me directly.',
+      errorOffline: 'No connection. Check your internet and try again, or email me at',
+      errorServer: 'The server did not accept your message. Please try again later or email me at',
       mailtoOpened: 'Your email app should open with the message filled in.',
       invalidEmail: 'Please enter a valid email address.',
       required: 'This field is required.',
@@ -130,6 +134,8 @@ export const en = {
   },
 
   notFound: { text: 'Page not found.', back: 'Back home' },
+
+  errorPage: { text: 'Something went wrong while showing this page.', reload: 'Reload' },
 }
 
 export type Content = typeof en

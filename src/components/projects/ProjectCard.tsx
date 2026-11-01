@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
 import { RotateCw } from 'lucide-react'
-import Button from '../ui/Button'
-import Tag from '../ui/Tag'
+import SafeImage from '../ui/SafeImage'
 import CornerBrackets from '../decor/CornerBrackets'
 import RuneCircle from '../decor/RuneCircle'
+import FileTab from './FileTab'
+import ProjectLinks from './ProjectLinks'
+import StackLine from './StackLine'
 import StatusLabels from './StatusLabels'
 import { useLang, useT } from '../../i18n/LanguageContext'
 import { fill } from '../../lib/rich'
@@ -21,10 +23,7 @@ type BarProps = {
 /** Editor-tab bar: file tab on the left, card numeral and flip toggle on the right. */
 function TopBar({ project, label, pressed, onToggle, toggleRef }: BarProps) {
   return (
-    <div className="flex items-stretch justify-between border-b border-line text-xs">
-      <span className="min-w-0 truncate border-r border-t-2 border-r-line border-t-accent-2 bg-bg px-3 py-2 text-fg">
-        {project.id}.tsx
-      </span>
+    <FileTab name={`${project.id}.tsx`}>
       <span className="flex shrink-0 items-center gap-1 pl-2">
         {project.arcana && (
           <span aria-hidden="true" className="text-accent">
@@ -42,12 +41,13 @@ function TopBar({ project, label, pressed, onToggle, toggleRef }: BarProps) {
           <RotateCw aria-hidden="true" className="h-4 w-4" />
         </button>
       </span>
-    </div>
+    </FileTab>
   )
 }
 
 const face = 'absolute inset-0 flex flex-col border border-line bg-surface [backface-visibility:hidden]'
 const body = 'relative m-2 flex min-h-0 flex-1 flex-col border border-accent/40 p-3'
+const rune = <RuneCircle inline spin={false} className="h-28 w-28" />
 
 /**
  * Tarot-ratio (7:12) spell file. The front shows the image in an arched window, the back the details.
@@ -101,7 +101,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           flipped ? '[transform:rotateY(180deg)]' : ''
         }`}
       >
-        {/* Front */}
         <div
           ref={front}
           aria-hidden={flipped}
@@ -114,15 +113,16 @@ export default function ProjectCard({ project }: { project: Project }) {
               style={{ borderRadius: '999px 999px 0 0' }}
             >
               {project.image ? (
-                <img
+                <SafeImage
                   src={project.image}
                   alt={fill(t.projects.thumbnailAlt, { title: project.title })}
                   loading="lazy"
-                  className={`h-full w-full ${project.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                  className="h-full w-full object-cover"
                   style={{ objectPosition: project.imagePosition }}
+                  fallback={rune}
                 />
               ) : (
-                <RuneCircle inline spin={false} className="h-28 w-28" />
+                rune
               )}
             </div>
             <div className="mt-3 text-center">
@@ -135,7 +135,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
 
-        {/* Back */}
         <div
           ref={back}
           aria-hidden={!flipped}
@@ -146,30 +145,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           <TopBar project={project} label={t.projects.showFront} pressed={pinned} onToggle={showFront} toggleRef={backToggle} />
           <div className={body}>
             <h3 className="text-lg font-bold text-fg">{project.title}</h3>
-            <p className="mt-2 break-words text-sm">
-              <span className="text-accent-2">import</span> <span className="text-fg">{`{ ${project.tech.join(', ')} }`}</span>{' '}
-              <span className="text-accent-2">from</span> <span className="text-ok">'stack'</span>
-            </p>
-            <ul className="sr-only">
-              {project.tech.map((x) => (
-                <Tag key={x}>{x}</Tag>
-              ))}
-            </ul>
+            <StackLine tech={project.tech} />
             <p className="mt-3 min-h-0 flex-1 overflow-y-auto text-sm">{project.description[lang]}</p>
-            {(project.live || project.repo) && (
-              <div className="mt-3 flex flex-wrap gap-2">
-                {project.live && (
-                  <Button size="sm" variant="primary" href={project.live}>
-                    {t.projects.live}
-                  </Button>
-                )}
-                {project.repo && (
-                  <Button size="sm" variant="ghost" href={project.repo}>
-                    {t.projects.repo}
-                  </Button>
-                )}
-              </div>
-            )}
+            <ProjectLinks project={project} className="mt-3" />
             <CornerBrackets visible={flipped} size={10} />
           </div>
         </div>

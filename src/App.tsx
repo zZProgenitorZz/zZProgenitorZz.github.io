@@ -4,6 +4,7 @@ import { LanguageProvider, useT } from './i18n/LanguageContext'
 import Navbar from './components/layout/Navbar'
 import SocialRail from './components/layout/SocialRail'
 import Footer from './components/layout/Footer'
+import ErrorBoundary from './components/layout/ErrorBoundary'
 import HomePage from './pages/HomePage'
 import WorksPage from './pages/WorksPage'
 import AboutPage from './pages/AboutPage'
@@ -24,6 +25,21 @@ function ScrollManager() {
     window.scrollTo(0, 0)
   }, [pathname, hash])
   return null
+}
+
+/** Page errors are caught here, so the navbar and footer stay visible. Keyed by path to reset on navigation. */
+function AppRoutes() {
+  const { pathname } = useLocation()
+  return (
+    <ErrorBoundary key={pathname}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/works" element={<WorksPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </ErrorBoundary>
+  )
 }
 
 function NotFound() {
@@ -48,12 +64,7 @@ export default function App() {
           <Navbar />
           <SocialRail />
           <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/works" element={<WorksPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <AppRoutes />
           </main>
           <Footer />
         </div>

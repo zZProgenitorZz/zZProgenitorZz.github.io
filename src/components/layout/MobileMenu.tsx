@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import Logo from '../decor/Logo'
-import { GithubIcon, LinkedinIcon } from '../ui/BrandIcons'
-import { socials } from '../../content/socials'
+import SocialLinks from '../ui/SocialLinks'
 import { useT } from '../../i18n/LanguageContext'
 import LanguageSelect from './LanguageSelect'
 import type { NavItem } from './navItems'
@@ -22,7 +21,7 @@ export default function MobileMenu({ items }: { items: NavItem[] }) {
 
   // `inert` is not in React 18 types: toggle the attribute directly.
   useEffect(() => {
-    panel.current?.toggleAttribute("inert", !open)
+    panel.current?.toggleAttribute('inert', !open)
   }, [open])
 
   // Scroll lock, focus handling, Escape, focus trap.
@@ -134,23 +133,12 @@ export default function MobileMenu({ items }: { items: NavItem[] }) {
           </ul>
         </nav>
 
-        <ul aria-label={t.nav.social} className="flex items-center justify-center gap-6 py-8">
-          <li>
-            <a href={socials.github} target="_blank" rel="noreferrer noopener" aria-label="GitHub" className="inline-flex h-11 w-11 items-center justify-center text-muted hover:text-fg">
-              <GithubIcon className="h-7 w-7" />
-            </a>
-          </li>
-          <li>
-            <a href={socials.linkedin} target="_blank" rel="noreferrer noopener" aria-label="LinkedIn" className="inline-flex h-11 w-11 items-center justify-center text-muted hover:text-fg">
-              <LinkedinIcon className="h-7 w-7" />
-            </a>
-          </li>
-          <li>
-            <a href={`mailto:${socials.email}`} aria-label="Email" className="inline-flex h-11 w-11 items-center justify-center text-muted hover:text-fg">
-              <Mail aria-hidden="true" className="h-7 w-7" />
-            </a>
-          </li>
-        </ul>
+        <SocialLinks
+          ariaLabel={t.nav.social}
+          className="flex items-center justify-center gap-6 py-8"
+          linkClass="inline-flex h-11 w-11 items-center justify-center text-muted hover:text-fg"
+          iconClass="h-7 w-7"
+        />
       </div>
     </div>
   )

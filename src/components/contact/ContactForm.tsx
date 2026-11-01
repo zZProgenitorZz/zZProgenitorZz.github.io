@@ -2,10 +2,10 @@ import { useRef, useState, type FormEvent, type SyntheticEvent } from 'react'
 import Button from '../ui/Button'
 import WaxSeal from '../decor/WaxSeal'
 import { Input, TextArea } from '../ui/Input'
-import { socials } from '../../content/socials'
+import { mailto, socials } from '../../content/socials'
 import { useT } from '../../i18n/LanguageContext'
 
-type Status = 'idle' | 'sending' | 'success' | 'mailto' | 'error'
+type Status = 'idle' | 'sending' | 'success' | 'mailto' | 'offline' | 'refused'
 type Field = HTMLInputElement | HTMLTextAreaElement
 
 export default function ContactForm() {
@@ -41,24 +41,30 @@ export default function ContactForm() {
 
     if (!id) {
       const body = `${data.message}\n\n${data.name} <${data.email}>`
-      window.location.href = `mailto:${socials.email}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(body)}`
+      window.location.href = `${mailto}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(body)}`
       setStatus('mailto')
       return
     }
 
     setStatus('sending')
+    let res: Response
     try {
-      const res = await fetch(`https://formspree.io/f/${id}`, {
+      res = await fetch(`https://formspree.io/f/${id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data),
       })
-      if (!res.ok) throw new Error(String(res.status))
-      form.current?.reset()
-      setStatus('success')
     } catch {
-      setStatus('error')
+      // fetch only rejects when the request never got an answer (offline, DNS, blocked).
+      setStatus('offline')
+      return
     }
+    if (!res.ok) {
+      setStatus('refused')
+      return
+    }
+    form.current?.reset()
+    setStatus('success')
   }
 
   const common = { onInvalid, onChange: clearError, required: true }
@@ -84,7 +90,14 @@ export default function ContactForm() {
             </>
           )}
           {status === 'mailto' && f.mailtoOpened}
-          {status === 'error' && f.error}
+          {(status === 'offline' || status === 'refused') && (
+            <>
+              {status === 'offline' ? f.errorOffline : f.errorServer}{' '}
+              <a href={mailto} className="text-fg underline">
+                {socials.email}
+              </a>
+            </>
+          )}
         </p>
       </div>
     </form>

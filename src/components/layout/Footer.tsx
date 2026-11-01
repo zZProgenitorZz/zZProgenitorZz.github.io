@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
-import { GitBranch, Mail } from 'lucide-react'
+import { GitBranch } from 'lucide-react'
 import Logo from '../decor/Logo'
-import { GithubIcon, LinkedinIcon } from '../ui/BrandIcons'
-import { socials } from '../../content/socials'
-import { useLang, useT, type Lang } from '../../i18n/LanguageContext'
+import SocialLinks from '../ui/SocialLinks'
+import { mailto, socials } from '../../content/socials'
+import { LANGS, useLang, useT } from '../../i18n/LanguageContext'
 import { fill } from '../../lib/rich'
-
-const icon = 'inline-flex h-11 w-11 items-center justify-center text-muted transition-colors hover:text-fg md:h-7 md:w-7'
-const langs: Lang[] = ['en', 'nl']
 
 const formatTime = () =>
   new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Amsterdam' }).format(new Date())
@@ -28,7 +25,7 @@ export default function Footer() {
       <div className="container-page py-8 md:py-10">
         <div className="flex flex-wrap items-center gap-x-6">
           <Logo />
-          <a href={`mailto:${socials.email}`} className="text-muted transition-colors hover:text-fg">
+          <a href={mailto} className="text-muted transition-colors hover:text-fg">
             {socials.email}
           </a>
         </div>
@@ -50,7 +47,7 @@ export default function Footer() {
             {t.footer.errors}
           </span>
           <span className="inline-flex items-center" role="group" aria-label={t.nav.language}>
-            {langs.map((l, i) => (
+            {LANGS.map((l, i) => (
               <span key={l} className="inline-flex items-center">
                 {i > 0 && (
                   <span aria-hidden="true" className="px-1">
@@ -74,23 +71,11 @@ export default function Footer() {
           <span>
             {time} {t.footer.timeLabel}
           </span>
-          <ul className="ml-auto flex items-center">
-            <li>
-              <a href={socials.github} target="_blank" rel="noreferrer noopener" aria-label="GitHub" className={icon}>
-                <GithubIcon className="h-4 w-4" />
-              </a>
-            </li>
-            <li>
-              <a href={socials.linkedin} target="_blank" rel="noreferrer noopener" aria-label="LinkedIn" className={icon}>
-                <LinkedinIcon className="h-4 w-4" />
-              </a>
-            </li>
-            <li>
-              <a href={`mailto:${socials.email}`} aria-label="Email" className={icon}>
-                <Mail aria-hidden="true" className="h-4 w-4" />
-              </a>
-            </li>
-          </ul>
+          <SocialLinks
+            className="ml-auto flex items-center"
+            linkClass="inline-flex h-11 w-11 items-center justify-center text-muted transition-colors hover:text-fg md:h-7 md:w-7"
+            iconClass="h-4 w-4"
+          />
         </div>
       </div>
     </footer>

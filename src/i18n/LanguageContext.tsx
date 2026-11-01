@@ -4,6 +4,7 @@ import { en, type Content } from '../content/en'
 import { nl } from '../content/nl'
 
 export type Lang = 'en' | 'nl'
+export const LANGS: Lang[] = ['en', 'nl']
 
 const STORAGE_KEY = 'lang'
 const dictionaries: Record<Lang, Content> = { en, nl }
@@ -46,10 +47,8 @@ function useCtx(): Ctx {
   return ctx
 }
 
-/** Active content object. */
 export const useT = (): Content => useCtx().t
 
-/** Active language + setter. */
 export const useLang = () => {
   const { lang, setLang } = useCtx()
   return { lang, setLang }

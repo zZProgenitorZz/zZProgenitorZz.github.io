@@ -21,12 +21,14 @@ All copy and data lives in `src/content/`. English and Dutch live side by side (
 | `projects.ts` | Projects |
 | `skills.ts` | Skills per category |
 | `facts.ts` | Fun facts (`**word**` renders white) |
-| `socials.ts` | Email, GitHub, LinkedIn URLs, optional per-language `cv` paths |
+| `socials.ts` | Email, GitHub, LinkedIn URLs (and the social link list), optional per-language `cv` paths |
+| `sequences.ts` | Growth path (journey) |
+| `localized.ts` | `Localized` type and `l10n(en, nl)` helper used by the data files |
 
-Images: put the originals in `docs/Image/` (portrait in `Me/`, screenshots in `Projects/`), then run `npm run images` to create the optimised WebP copies in `public/images/`. To add or replace an image, edit the file list in `scripts/images.mjs`.
+Images: put the originals in `docs/images/` (portrait in `Me/`, screenshots in `Projects/`), then run `npm run images` to create the optimised WebP copies in `public/images/`. To add or replace an image, edit the file list in `scripts/images.mjs`.
 
 - Portrait: `public/images/portrait.webp` (800×960, 5:6, cropped from the top).
-- Project screenshots: `public/images/projects/*.webp` (1600px wide, uncropped). Set `image` in `projects.ts`. The tarot card shows it in an arched window: use `imagePosition` (a CSS `object-position`, e.g. `'25% center'`) to choose which part of a wide screenshot is visible, or `imageFit: 'contain'` to show the whole screenshot instead.
+- Project screenshots: `public/images/projects/*.webp` (1600px wide, uncropped). Set `image` in `projects.ts`. The tarot card shows it in an arched window: use `imagePosition` (a CSS `object-position`, e.g. `'25% center'`) to choose which part of a wide screenshot is visible.
 - CV: put one PDF per language in `public/cv/` and set `socials.cv` to `{ en: '/cv/CV_Shantosh_Merhai_EN.pdf', nl: '/cv/CV_Shantosh_Merhai_NL.pdf' }`. The button links to the PDF for the active site language. Leave `cv` out to hide the button.
 
 ## Add a project
@@ -34,12 +36,33 @@ Images: put the originals in `docs/Image/` (portrait in `Me/`, screenshots in `P
 Add an object to the array in `src/content/projects.ts`:
 
 ```ts
-{ id: 'my-app', title: 'My App', description: { en: '...', nl: '...' },
-  tech: ['React'], image: '/images/my-app.png', live: 'https://...', repo: 'https://github.com/...',
-  size: 'large', featured: false }
+{ id: 'my-app', title: 'My App', description: l10n('...', '...'),
+  tech: ['React'], image: '/images/projects/my-app.webp', live: 'https://...', repo: 'https://github.com/...',
+  size: 'large', status: ['wip'], year: 2026, tags: ['web'], featured: false }
 ```
 
 `featured: true` shows it on the Home page (first 3). `size: 'small'` renders the image-less card. Missing `live`/`repo` hides that button.
+
+## Project structure
+
+```
+src/
+  components/
+    layout/    navbar, footer, social rail, mobile menu, language select, error boundary
+    sections/  page sections (hero, projects preview, journey, about preview, contact)
+    projects/  project cards, filters and their small parts (file tab, stack line, links, status)
+    about/     skills grimoire, fun facts, framed portrait
+    contact/   contact form and contact links
+    decor/     SVG decoration (logo, gear, rune circle, crosshair, corner brackets)
+    ui/        generic building blocks (button, section, inputs, safe image, social links)
+  content/     all copy and data (EN and NL)
+  i18n/        language context and hooks
+  lib/         small helpers (placeholder filling, roman numerals)
+  pages/       one component per route
+public/        files served as-is (images/, cv/, favicon)
+docs/          images/ holds the originals (see above), screenshots/ the current page screenshots
+scripts/       images.mjs converts the originals to WebP
+```
 
 ## Contact form
 

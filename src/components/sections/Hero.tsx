@@ -1,12 +1,17 @@
 import Button from '../ui/Button'
+import CvButton from '../ui/CvButton'
+import PromptLine from '../ui/PromptLine'
+import SafeImage from '../ui/SafeImage'
 import TerminalWindow from '../ui/TerminalWindow'
+import { PORTRAIT_SRC } from '../about/Portrait'
 import RuneCircle from '../decor/RuneCircle'
 import CornerBrackets from '../decor/CornerBrackets'
-import { socials } from '../../content/socials'
 import { sequences } from '../../content/sequences'
 import { useLang, useT } from '../../i18n/LanguageContext'
 import { fill } from '../../lib/rich'
 import type { ReactNode } from 'react'
+
+const thumb = 'h-16 w-14 shrink-0 border border-line bg-bg'
 
 export default function Hero() {
   const t = useT()
@@ -43,19 +48,19 @@ export default function Hero() {
         <RuneCircle className="-right-20 top-1/2 hidden h-[520px] w-[520px] -translate-y-1/2 md:block" />
         <div className="relative z-10 md:w-[85%]">
           <TerminalWindow title={fill(h.windowTitle, { name: slug })} className="relative">
-            <p className="text-sm">
-              <span aria-hidden="true" className="mr-2 text-ok">
-                $
-              </span>
-              <span className="text-fg">{h.command}</span>
-            </p>
+            <PromptLine command={h.command} />
             <div className="mt-4 flex flex-col gap-4 sm:flex-row">
-              <img
-                src="/images/portrait.webp"
+              <SafeImage
+                src={PORTRAIT_SRC}
                 alt={h.portraitAlt}
                 width={400}
                 height={480}
-                className="h-16 w-14 shrink-0 border border-line bg-bg object-cover object-top"
+                className={`${thumb} object-cover object-top`}
+                fallback={
+                  <span className={`${thumb} flex items-center justify-center`}>
+                    <RuneCircle inline spin={false} className="h-10 w-10" />
+                  </span>
+                }
               />
               <dl className="min-w-0 flex-1 space-y-1.5">
                 {rows.map(([k, v]) => (
@@ -74,11 +79,7 @@ export default function Hero() {
           </TerminalWindow>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="/#contacts">{h.cta}</Button>
-            {socials.cv && (
-              <Button href={socials.cv[lang]} download variant="ghost">
-                {h.downloadCv}
-              </Button>
-            )}
+            <CvButton />
           </div>
         </div>
       </div>

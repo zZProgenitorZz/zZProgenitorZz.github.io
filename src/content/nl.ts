@@ -16,6 +16,10 @@ export const nl: Content = {
     social: 'Sociale links',
   },
 
+  common: {
+    downloadCv: '[ download cv ]',
+  },
+
   hero: {
     command: 'invoke whoami',
     keys: { name: 'name', role: 'role', stack: 'stack', level: 'level', status: 'status', bio: 'bio' },
@@ -23,7 +27,6 @@ export const nl: Content = {
     bio: 'Ik bouw backends en webapps. Het laatst een medische annotatietool met FastAPI en MongoDB, met Docker uitgerold op AWS.',
     levelLabel: 'Sequence',
     cta: 'Neem contact op ->',
-    downloadCv: '[ download cv ]',
     portraitAlt: 'Portret van Shantosh Merhai',
     currentProject: 'GateKeeper (schoolproject)',
     windowTitle: '~/{name}',
@@ -92,7 +95,8 @@ export const nl: Content = {
       send: './send ->',
       sending: 'verzegelen...',
       success: 'Bedankt! Je bericht is verzonden.',
-      error: 'Er ging iets mis. Probeer het opnieuw of mail me rechtstreeks.',
+      errorOffline: 'Geen verbinding. Controleer je internet en probeer het opnieuw, of mail me op',
+      errorServer: 'De server heeft je bericht niet geaccepteerd. Probeer het later opnieuw of mail me op',
       mailtoOpened: 'Je e-mailapp zou moeten openen met het bericht al ingevuld.',
       invalidEmail: 'Vul een geldig e-mailadres in.',
       required: 'Dit veld is verplicht.',
@@ -129,4 +133,6 @@ export const nl: Content = {
   },
 
   notFound: { text: 'Pagina niet gevonden.', back: 'Terug naar home' },
+
+  errorPage: { text: 'Er ging iets mis bij het tonen van deze pagina.', reload: 'Opnieuw laden' },
 }

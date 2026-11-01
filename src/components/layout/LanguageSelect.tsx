@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
-import { useLang, useT, type Lang } from '../../i18n/LanguageContext'
-
-const options: Lang[] = ['en', 'nl']
+import { LANGS, useLang, useT, type Lang } from '../../i18n/LanguageContext'
 
 type Props = { className?: string }
 
@@ -59,7 +57,7 @@ export default function LanguageSelect({ className = '' }: Props) {
           aria-label={t.nav.language}
           className="absolute left-0 top-full z-50 mt-2 min-w-[72px] border border-line bg-surface"
         >
-          {options.map((o) => (
+          {LANGS.map((o) => (
             <li key={o} role="option" aria-selected={o === lang}>
               <button
                 type="button"

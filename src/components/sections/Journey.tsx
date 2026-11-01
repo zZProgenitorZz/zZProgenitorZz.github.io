@@ -1,5 +1,6 @@
 import Section from '../ui/Section'
 import SectionHeading from '../ui/SectionHeading'
+import PromptLine from '../ui/PromptLine'
 import Gear from '../decor/Gear'
 import ClockHands from '../decor/ClockHands'
 import { sequences } from '../../content/sequences'
@@ -27,12 +28,7 @@ export default function Journey({ num, decor }: Props) {
   return (
     <Section labelledBy="journey-heading">
       <SectionHeading id="journey-heading" num={num} title={j.heading} />
-      <p className="mb-4 text-sm">
-        <span aria-hidden="true" className="mr-2 text-ok">
-          $
-        </span>
-        <span className="text-fg">{j.command}</span>
-      </p>
+      <PromptLine command={j.command} className="mb-4" />
       <ol className="max-w-[620px]">
         {rungs.map((r, i) => {
           const state = r.current ? 'current' : r.seq > currentSeq ? 'reached' : 'future'

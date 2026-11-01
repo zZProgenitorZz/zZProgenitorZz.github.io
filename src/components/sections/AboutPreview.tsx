@@ -1,7 +1,7 @@
 import Section from '../ui/Section'
 import SectionHeading from '../ui/SectionHeading'
 import Button from '../ui/Button'
-import CornerBrackets from '../decor/CornerBrackets'
+import Portrait from '../about/Portrait'
 import { useT } from '../../i18n/LanguageContext'
 
 export default function AboutPreview() {
@@ -19,10 +19,7 @@ export default function AboutPreview() {
             {a.cta}
           </Button>
         </div>
-        <div className="relative mx-auto w-full max-w-[280px] border border-line bg-surface p-3">
-          <img src="/images/portrait.webp" alt={a.imageAlt} width={400} height={480} loading="lazy" className="block h-auto w-full" />
-          <CornerBrackets always size={14} />
-        </div>
+        <Portrait alt={a.imageAlt} lazy />
       </div>
     </Section>
   )
