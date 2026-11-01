@@ -76,7 +76,7 @@ Without it, the form opens a `mailto:` link instead.
 
 ## Theme: Arcane terminal (`theme/arcane-terminal`)
 
-Concept: the code-editor/terminal portfolio, where code is spellcraft. Palette: `#16161E` background, purple accent, magenta (`accent-2`) for active states and the cursor, mint (`ok`) for success/shipped. JetBrains Mono everywhere (no extra font). Hero is a terminal window running `invoke whoami`; skills are a syntax-highlighted `grimoire.ts` generated from `content/skills.ts`; the growth path is a `git log --graph` of sequences; the footer is an editor status bar (branch, errors, EN | NL, UTF-8, Amsterdam time). Decor: corner brackets, crosshairs, a barely visible 32px blueprint grid on the hero, a slowly rotating rune circle (SVG glyph rings). Animations (cursor blink, rune rotation) are CSS-only and switched off under `prefers-reduced-motion`.
+Concept: the code-editor/terminal portfolio, where code is spellcraft. Palette: `#16161E` background, purple (`accent`, `#A277FF`) for headings, links and borders, red (`accent-2`, `#FF3B4E`) for active states and the cursor, gold (`ok`, `#E3AE3E`) for success/shipped and the prompt. JetBrains Mono everywhere (no extra font). Hero is a terminal window running `invoke whoami`; skills are a syntax-highlighted `grimoire.ts` generated from `content/skills.ts`; the growth path is a `git log --graph` of sequences; the footer is an editor status bar (branch, errors, EN | NL, UTF-8, Amsterdam time). Decor: corner brackets, crosshairs, a barely visible 32px blueprint grid on the hero, a slowly rotating rune circle (SVG glyph rings). Animations (cursor blink, rune rotation) are CSS-only and switched off under `prefers-reduced-motion`.
 
 Edit theme content here:
 
@@ -84,4 +84,4 @@ Edit theme content here:
 - `src/content/skills.ts`: includes a `learning` category.
 - `src/content/sequences.ts`: growth path; the `current: true` step is shown as `level:` in the hero and as `HEAD` in the log.
 - `src/content/en.ts` / `nl.ts`: hero command, stack line, headings, button text.
-- Colors: `tailwind.config.ts`.
+- Colors: `tailwind.config.ts`. Three spots hard-code a hex value instead of using a token: `Logo.tsx` and `public/favicon.svg` (the `accent-2` red) and `RuneCircle.tsx` (the `accent` purple). Change those too when you change the palette. The previous palette (purple / magenta / mint) is kept in the git tag `colors-purple-magenta`.
