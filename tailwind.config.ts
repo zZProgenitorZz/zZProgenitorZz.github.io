@@ -14,9 +14,9 @@ export default {
         'line-strong': '#6B6F8E',
         fg: '#E6E6F0',
         muted: '#9A9CB8',
-        accent: '#A277FF',
-        'accent-2': '#FF6AC1', // magenta
-        ok: '#61FFCA',
+        accent: '#A277FF', // purple
+        'accent-2': '#FF3B4E', // red
+        ok: '#E3AE3E', // gold
       },
       fontFamily: { sans: mono, mono },
       keyframes: {
