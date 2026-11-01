@@ -51,7 +51,7 @@ export default function Hero() {
             </p>
             <div className="mt-4 flex flex-col gap-4 sm:flex-row">
               <img
-                src="/images/portrait.png"
+                src="/images/portrait.webp"
                 alt={h.portraitAlt}
                 width={400}
                 height={480}
@@ -75,7 +75,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="/#contacts">{h.cta}</Button>
             {socials.cv && (
-              <Button href={socials.cv} download variant="ghost">
+              <Button href={socials.cv[lang]} download variant="ghost">
                 {h.downloadCv}
               </Button>
             )}

@@ -20,7 +20,7 @@ export default function AboutPreview() {
           </Button>
         </div>
         <div className="relative mx-auto w-full max-w-[280px] border border-line bg-surface p-3">
-          <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} loading="lazy" className="block h-auto w-full" />
+          <img src="/images/portrait.webp" alt={a.imageAlt} width={400} height={480} loading="lazy" className="block h-auto w-full" />
           <CornerBrackets always size={14} />
         </div>
       </div>

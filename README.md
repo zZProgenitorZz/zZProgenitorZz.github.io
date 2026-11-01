@@ -21,13 +21,13 @@ All copy and data lives in `src/content/`. English and Dutch live side by side (
 | `projects.ts` | Projects |
 | `skills.ts` | Skills per category |
 | `facts.ts` | Fun facts (`**word**` renders white) |
-| `socials.ts` | Email, GitHub, LinkedIn URLs, optional `cv` path |
+| `socials.ts` | Email, GitHub, LinkedIn URLs, optional per-language `cv` paths |
 
-Images go in `public/images/`:
+Images: put the originals in `docs/Image/` (portrait in `Me/`, screenshots in `Projects/`), then run `npm run images` to create the optimised WebP copies in `public/images/`. To add or replace an image, edit the file list in `scripts/images.mjs`.
 
-- Portrait: `public/images/portrait.png` (transparent PNG).
-- Project screenshots: replace `public/images/project-1.svg` … `project-4.svg` (update the `image` path in `projects.ts` if the extension changes).
-- CV: put the PDF in `public/cv/` and set `socials.cv` to its path, e.g. `'/cv/Shantosh_Merhai_CV.pdf'`. While `cv` is empty the download button is hidden.
+- Portrait: `public/images/portrait.webp` (800×960, 5:6, cropped from the top).
+- Project screenshots: `public/images/projects/*.webp` (1600px wide, uncropped). Set `image` in `projects.ts`. The tarot card shows it in an arched window: use `imagePosition` (a CSS `object-position`, e.g. `'25% center'`) to choose which part of a wide screenshot is visible, or `imageFit: 'contain'` to show the whole screenshot instead.
+- CV: put one PDF per language in `public/cv/` and set `socials.cv` to `{ en: '/cv/CV_Shantosh_Merhai_EN.pdf', nl: '/cv/CV_Shantosh_Merhai_NL.pdf' }`. The button links to the PDF for the active site language. Leave `cv` out to hide the button.
 
 ## Add a project
 

@@ -118,7 +118,8 @@ export default function ProjectCard({ project }: { project: Project }) {
                   src={project.image}
                   alt={fill(t.projects.thumbnailAlt, { title: project.title })}
                   loading="lazy"
-                  className="h-full w-full object-cover"
+                  className={`h-full w-full ${project.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                  style={{ objectPosition: project.imagePosition }}
                 />
               ) : (
                 <RuneCircle inline spin={false} className="h-28 w-28" />

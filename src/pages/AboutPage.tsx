@@ -8,10 +8,11 @@ import CornerBrackets from '../components/decor/CornerBrackets'
 import PageEdgeDecor from '../components/decor/PageEdgeDecor'
 import Button from '../components/ui/Button'
 import { socials } from '../content/socials'
-import { useT } from '../i18n/LanguageContext'
+import { useLang, useT } from '../i18n/LanguageContext'
 
 export default function AboutPage() {
   const t = useT()
+  const { lang } = useLang()
   const a = t.about
   return (
     <div className="relative">
@@ -30,13 +31,13 @@ export default function AboutPage() {
               <p key={i}>{p}</p>
             ))}
             {socials.cv && (
-              <Button href={socials.cv} download variant="ghost">
+              <Button href={socials.cv[lang]} download variant="ghost">
                 {t.hero.downloadCv}
               </Button>
             )}
           </div>
           <div className="relative mx-auto w-full max-w-[280px] border border-line bg-surface p-3">
-            <img src="/images/portrait.png" alt={a.imageAlt} width={400} height={480} className="block h-auto w-full" />
+            <img src="/images/portrait.webp" alt={a.imageAlt} width={400} height={480} className="block h-auto w-full" />
             <CornerBrackets always size={14} />
           </div>
         </div>

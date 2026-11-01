@@ -6,6 +6,10 @@ export type Project = {
   description: { en: string; nl: string }
   tech: string[]
   image?: string
+  /** CSS object-position for the image in the tarot card window (default center). */
+  imagePosition?: string
+  /** 'contain' shows a wide screenshot in full on a dark background instead of cropping it (default 'cover'). */
+  imageFit?: 'cover' | 'contain'
   live?: string
   repo?: string
   size: 'large' | 'small'
@@ -47,7 +51,8 @@ export const projects: Project[] = [
       'Een zelfgehoste app die bijhoudt wat ik lees, kijk, luister en plan, met een AI-assistent (Sunny) die dingen opzoekt en pas na mijn bevestiging iets aanpast. Event sourcing en CQRS op SQLite, Spotify-sync en een jaarlijks Wrapped-overzicht.',
     ),
     tech: ['Python', 'FastAPI', 'HTMX', 'Jinja2', 'SQLite', 'pytest', 'Claude API'],
-    image: '/images/project-2.svg',
+    image: '/images/projects/personal-tracker.webp',
+    imagePosition: '0% center',
     repo: 'https://github.com/zZProgenitorZz/Personal-tracker',
     size: 'large',
     featured: true,
@@ -64,7 +69,8 @@ export const projects: Project[] = [
       "Webapp voor het annoteren van medische beelden, gebouwd tijdens mijn stage bij AiDx Medical. Ik bouwde de backend en REST API's met FastAPI en MongoDB, zette alles in Docker-containers en rolde het uit op AWS.",
     ),
     tech: ['Python', 'FastAPI', 'MongoDB', 'React', 'Docker', 'AWS'],
-    image: '/images/project-3.svg',
+    image: '/images/projects/medical-annotation-tool.webp',
+    imagePosition: '85% center',
     size: 'large',
     featured: true,
     status: 'school',
@@ -81,7 +87,8 @@ export const projects: Project[] = [
       'Mijn eigen portfoliosite: een React-app in terminalstijl met tarot-projectkaarten, een skills-grimoire en een EN/NL-schakelaar.',
     ),
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-    image: '/images/project-4.svg',
+    image: '/images/projects/portfolio.webp',
+    imagePosition: '25% center',
     repo: 'https://github.com/zZProgenitorZz/Portfolio',
     size: 'large',
     status: 'wip',
