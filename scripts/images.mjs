@@ -25,6 +25,7 @@ const screenshot = (input, output) =>
 // To add or replace an image, edit this list.
 const jobs = [
   { from: 'Me/portfolio_donker.jpg', to: 'portrait.webp', convert: portrait },
+  { from: 'Projects/Gatekeeper Project.png', to: 'projects/gatekeeper.webp', convert: screenshot },
   { from: 'Projects/Medical-annotation-tool.png', to: 'projects/medical-annotation-tool.webp', convert: screenshot },
   { from: 'Projects/Personal-Tracker.png', to: 'projects/personal-tracker.webp', convert: screenshot },
   { from: 'Projects/Portfolio.png', to: 'projects/portfolio.webp', convert: screenshot },
